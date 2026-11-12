@@ -25,7 +25,7 @@ begin
     next unless row.fetch('status') == 'open'
     fields = [row.fetch('id'), row.fetch('title')]
     raise 'Expected string id and title fields' unless fields.all? { |field| field.is_a?(String) }
-    (fields + ["#{base}/p/#{row['id']}\"]).join("\t") + "\n"
+    (fields + ["#{base}/p/#{row['id']}"]).join("\t") + "\n"
   end
   output = lines.join.encode(Encoding::UTF_8)
 rescue StandardError => error
